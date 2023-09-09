@@ -20,10 +20,12 @@ int main(void)
 	c++;
 }
 while (d <= 'Z')
-{
+	{
 	putchar(d);
 	d++;
-}
+	}
+
+putchar('\n');
 return (0);
 }
 
