@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 /**
  * main - entry point
  *
@@ -7,33 +8,23 @@
  */
 int main(void)
 {
-	int i = '0';
+	int i, j;
 
-	int j = '0';
-
-	while (i <= 9)
-	{
-		while (j <= '9')
+	for (i = '0'; i < '9'; i++)
+{
+	for (j = i + 1; j <= '9'; j++)
+{
+	if (j != i)
 		{
-			if (!(i > j) || i == j)
-	{
-				putchar(i);
-				putchar(j);
-				if (i == '8' && j == '9')
-				{
-					putchar('\n');
-				}
-				else
-				{
-					putchar(',');
-					putchar(' ');
-
-				}
+			putchar(i);
+			putchar(j);
+			if (i == '8' && j == '9')
+				continue;
+			putchar(',');
+			putchar(' ');
+		}
+		}
 	}
-			j++;
-	}
-		j = '0';
-		i++;
-	}
+	putchar('\n');
 	return (0);
 }
