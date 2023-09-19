@@ -7,20 +7,43 @@
  */
 int main(void)
 {
-	int sum;
-	char c;
+	int num = 0, sum, half1, half2;
+	char c[54];
 
 	srand(time(NULL));
 
 	sum = 0;
 
-	while (sum <= 2645)
+	while (sum < 2772)
 	{
-		c = rand() % 128;
-		sum += c;
-		putchar(c);
+		c[num] = 33 + rand() % 94;
+		sum += c[num++];
 	}
-	putchar(2772 - sum);
+	c[num] = '\0';
+	if (sum != 2772)
+	{
+		half1 = (sum - 2772) / 2;
+		half2 = (sum - 2772) / 2;
+		if ((sum - 2772) % 2 != 0)
+			half1++;
 
+		for (num = 0; c[num]; num++)
+		{
+			if (c[num] >= (33 + half1))
+			{
+				c[num] -= half1;
+				break;
+			}
+		}
+		for (num = 0; c[num]; num++)
+		{
+			if (c[num] >= (33 + half2))
+			{
+				c[num] -= half2;
+				break;
+			}
+	}
+	}
+	printf("%s", c);
 	return (0);
 }
