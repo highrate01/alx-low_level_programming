@@ -7,4 +7,4 @@ main:
 	xor rax, rax
 	ret
 format: db 'Hello, holberton', 10, 0
-format_len equ $ - format 
+format_len equ $ - format
