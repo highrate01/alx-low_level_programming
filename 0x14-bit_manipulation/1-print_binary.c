@@ -4,7 +4,7 @@
  * @n: dec
  * Return: void
  */
-void printbi(unsigned int n)
+void printbi(unsigned long int n)
 {
 	if (n == 0)
 		return;
