@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * void printbi - print binary rep of number
+ * printbi - print binary rep of number
  * @n: dec
  * Return: void
  */
