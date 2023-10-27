@@ -26,12 +26,10 @@ unsigned int binary_to_uint(const char *b)
 		if (b[i] != '0' && b[i] != '1')
 			return (0);
 		for (j = length - 1; j > 0; j--)
-		{
-			pow = pow * base;
-			sum = sum + (pow * (b[i] - 48));
-			length--;
-			pow = 1;
-		}
+		pow = pow * base;
+		sum = sum + (pow * (b[i] - 48));
+		length--;
+		pow = 1;
 	}
 	return (sum);
 }
