@@ -12,11 +12,12 @@
  * @next: pointer to next node of list
  */
 
-typedef struct hash_node_s{
+typedef struct hash_node_s
+{
 	char *key;
 	char *value;
 	struct hash_node_s *next;
-}hash_node_t;
+} hash_node_t;
 
 /**
  * struct hash_table_s - hash table structure
@@ -24,10 +25,11 @@ typedef struct hash_node_s{
  * @size: The size of the array
  * @array: Array of the size
  */
-typedef struct hash_table_s{
+typedef struct hash_table_s
+{
 	unsigned long int size;
 	hash_node_t **array;
-}hash_table_t;
+} hash_table_t;
 
 /**
  * struct shash_node_s - node of sorted hash table
@@ -40,13 +42,14 @@ typedef struct hash_table_s{
  * @_next: pointer to the next element on the sorted list
  */
 
-typedef struct shash_node_s{
+typedef struct shash_node_s
+{
 	char *key;
 	char *value;
 	struct shash_node_s *next;
 	struct shash_node_s *_next;
 	struct shash_node_s *_prev;
-}shash_node_t;
+} shash_node_t;
 
 hash_table_t *hash_table_create(unsigned long int size);
 
