@@ -43,7 +43,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!_key)
 		return (0);
 	new_node->key = _key;
-	new_node->value = _key;
+	new_node->value = _value;
 	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
 	return (1);
