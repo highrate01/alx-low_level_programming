@@ -21,6 +21,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	{
 		if (!strcmp(key, bucket->key))
 			return (bucket->value);
+		bucket = bucket->next;
 	}
 	return (NULL);
 }
