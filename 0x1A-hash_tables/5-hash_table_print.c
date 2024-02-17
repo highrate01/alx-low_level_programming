@@ -20,7 +20,7 @@ void hash_table_print(const hash_table_t *ht)
 		bucket = ht->array[i];
 		while (bucket)
 		{
-			if (nothing)
+			if (!nothing)
 				printf(",");
 			printf("'%s': '%s'", bucket->key, bucket->value);
 			nothing = 1;
