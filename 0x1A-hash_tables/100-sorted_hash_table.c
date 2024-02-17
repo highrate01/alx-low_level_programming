@@ -1,4 +1,4 @@
-#include "hash_table.h"
+#include "hash_tables.h"
 
 /**
  * sorted_list - function for inserting new node
@@ -9,33 +9,33 @@
  */
 void sorted_list(shash_table_t *ht, shash_node_t *new_node)
 {
-	shash_node_t *_bucket = h->_head;
+	shash_node_t *sbucket = ht->shead;
 
-	if (_bucket == NULL)
+	if (sbucket == NULL)
 	{
-		ht->_head = ht->_tail = new_node;
-		new_node->_next = new_node->_prev = NULL;
+		ht->shead = ht->stail = new_node;
+		new_node->snext = new_node->sprev = NULL;
 		return;
 	}
 	do {
-		if (strcmp(new_node->key, _bucket->key) < 0)
+		if (strcmp(new_node->key, sbucket->key) < 0)
 		{
-			new_node->_next = _bucket;
-			new_node->_prev = _bucket->_prev;
+			new_node->snext = sbucket;
+			new_node->sprev = sbucket->sprev;
 
-			if (!_bucket->_prev)
-				ht->_head = new_node;
+			if (!sbucket->sprev)
+				ht->shead = new_node;
 			else
-				_bucket->_prev->_next = new_node;
-			_bucket->_prev = new_node;
+				sbucket->sprev->snext = new_node;
+			sbucket->sprev = new_node;
 			return;
 		}
-		_bucket = _bucket->_next;
-	} while (_bucket)
-	new_node->_prev = ht->_tail;
-	new_node->_next = ht->_tail->_next;
-	ht->_tail->_next = new_node;
-	ht->_tail = new_node;
+		sbucket = sbucket->snext;
+	} while (sbucket);
+	new_node->sprev = ht->stail;
+	new_node->snext = ht->stail->snext;
+	ht->stail->snext = new_node;
+	ht->stail = new_node;
 }
 /**
  * shash_table_create - create a sorted hash tables
@@ -72,7 +72,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index = 0;
-	char *valuecopy, keycopy;
+	char *valuecopy, *keycopy;
 	shash_node_t *bucket, *new_node;
 
 	if (!ht || !key || !value)
@@ -148,7 +148,7 @@ void shash_table_print(const shash_table_t *ht)
 
 	if (!ht)
 		return;
-	bucket = ht->_head;
+	bucket = ht->shead;
 	printf("{");
 	while (bucket)
 	{
@@ -156,7 +156,7 @@ void shash_table_print(const shash_table_t *ht)
 			printf(",");
 		printf("'%s': '%s'", bucket->key, bucket->value);
 		nothing = 1;
-		bucket = bucket->_next;
+		bucket = bucket->next;
 	}
 	printf("}\n");
 }
@@ -172,7 +172,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 
 	if (!ht)
 		return;
-	bucket = ht->_tail;
+	bucket = ht->stail;
 	printf("{");
 	while (bucket)
 	{
@@ -180,7 +180,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 			printf(",");
 		printf("'%s': '%s'", bucket->key, bucket->value);
 		nothing = 1;
-		bucket = bucket->_prev;
+		bucket = bucket->sprev;
 	}
 	printf("}\n");
 }
