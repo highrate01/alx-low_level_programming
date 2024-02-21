@@ -17,7 +17,7 @@ typedef struct hash_node_s
      char *key;
      char *value;
      struct hash_node_s *next;
-} hash_node_t;
+}hash_node_t;
 
 /**
  * struct hash_table_s - Hash table data structure
@@ -49,7 +49,7 @@ typedef struct shash_node_s
      struct shash_node_s *next;
      struct shash_node_s *sprev;
      struct shash_node_s *snext;
-} shash_node_t;
+}shash_node_t;
 /**
  * struct shash_table_s - Sorted hash table data structure
  *
