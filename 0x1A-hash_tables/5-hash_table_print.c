@@ -21,7 +21,7 @@ void hash_table_print(const hash_table_t *ht)
 		while (bucket)
 		{
 			if (nothing)
-				printf(",");
+				printf(", ");
 			printf("'%s': '%s'", bucket->key, bucket->value);
 			nothing = 1;
 			bucket = bucket->next;
