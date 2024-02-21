@@ -9,8 +9,8 @@
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int i = 0;
-	hash_node_t *bucket;
-	int nothing = 1;
+	hash_node_t *bucket = NULL;
+	int nothing = 0;
 
 	if (!ht)
 		return;
@@ -20,10 +20,10 @@ void hash_table_print(const hash_table_t *ht)
 		bucket = ht->array[i];
 		while (bucket)
 		{
-			if (!nothing)
+			if (nothing)
 				printf(",");
 			printf("'%s': '%s'", bucket->key, bucket->value);
-			nothing = 0;
+			nothing = 1;
 			bucket = bucket->next;
 		}
 	}
