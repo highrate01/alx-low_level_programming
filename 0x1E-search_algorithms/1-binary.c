@@ -26,7 +26,7 @@ int binary_search(int *array, size_t size, int value)
 			printf("%d, ", array[i]);
 		printf("\n");
 
-		mid = (first + last) / 2;
+		mid = first + (last - first) / 2;
 
 		if (value == array[mid])
 			return (mid);
