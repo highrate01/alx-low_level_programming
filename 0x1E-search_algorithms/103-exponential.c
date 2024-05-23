@@ -48,10 +48,12 @@ int _binary_search(int *array, size_t first, size_t last, int value)
 int exponential_search(int *array, size_t size, int value)
 {
 	size_t i = 0, last;
-	int first = array[0];
+	int first;
 
 	if (array == NULL)
 		return (-1);
+	first = array[0];
+
 	if (first != value)
 	{
 		for (i = 1; i < size && array[i] <= value; i = i * 2)
