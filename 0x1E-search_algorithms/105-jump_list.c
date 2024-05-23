@@ -12,16 +12,18 @@
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	size_t first = 0, last, index = 0;
+	size_t first, last, index;
 	listint_t *prev;
 
 	if (list == NULL || size == 0)
 		return (NULL);
 	last = (size_t)sqrt((double)size);
+	first = 0;
+	index = 0;
 	do {
 		prev = list;
 		first++;
-		index = first + last;
+		index = first * last;
 
 		while (list->next && list->index < index)
 			list = list->next;
